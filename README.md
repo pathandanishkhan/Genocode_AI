@@ -239,4 +239,5 @@ If you find CodeMind AI useful, please consider giving it a star on GitHub! ⭐ 
 
 ---
 
-Crafted with ❤️ by Naser. Let's revolutionize coding together with CodeMind AI! 🎉
+Crafted with ❤️ by Naser. Let's revolutionize coding together with CodeMind AI! 🎉#   G e n o c o d e - A I  
+ 
