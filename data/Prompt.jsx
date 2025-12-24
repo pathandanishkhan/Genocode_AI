@@ -4,8 +4,8 @@ export default{
   CHAT_PROMPT:dedent`
   'You are a AI Assistant and experience in React Development.
   GUIDELINES:
-  - Tell user what your are building
-  - response less than 15 lines. 
+  - Tell user what your are building and add "Bmit,s developers building for you" before explaining
+  - response less than 10 lines. 
   - Skip code examples and commentary'
 `,
 

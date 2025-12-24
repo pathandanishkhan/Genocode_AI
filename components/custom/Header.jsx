@@ -1,53 +1,76 @@
-'use client';
-import Image from 'next/image';
-import React, { useContext } from 'react';
-import { Button } from '../ui/button';
-import Colors from '@/data/Colors';
-import { UserDetailContext } from '@/context/UserDetailContext';
-import Link from 'next/link';
-import { Download, Rocket } from 'lucide-react';
-import { useSidebar } from '../ui/sidebar';
-import { usePathname } from 'next/navigation';
-import { ActionContext } from '@/context/ActionContext';
+"use client";
+import Image from "next/image";
+import React, { useContext, useState , useEffect} from "react";
+import { Button } from "../ui/button";
+import Colors from "@/data/Colors";
+import { UserDetailContext } from "@/context/UserDetailContext";
+import Link from "next/link";
+import { Download, Rocket } from "lucide-react";
+import { useSidebar } from "../ui/sidebar";
+import { usePathname } from "next/navigation";
+import { ActionContext } from "@/context/ActionContext";
+import SignInDialog from "../custom/SignInDialog"; // ✅ import here
 
 function Header() {
-  const { userDetail, setUserDetail } = useContext(UserDetailContext);
+  const { userDetail } = useContext(UserDetailContext);
   const { action, setAction } = useContext(ActionContext);
   const { toggleSidebar } = useSidebar();
   const pathname = usePathname();
-  const onActionBtn =(actn) => {
+    const [isHomePage, setIsHomePage] = useState(false);
+ useEffect(() => {
+  setIsHomePage(window?.location?.pathname === "/");
+}, [pathname]);
+  const [openDialog, setOpenDialog] = useState(false); // ✅ dialog state
+
+  const onActionBtn = (actn) => {
     setAction({
       actionType: actn,
-      timeStamp: Date.now()
-    })
+      timeStamp: Date.now(),
+    });
+  };
 
-  }
   return (
     <div className="p-4 flex justify-between items-center">
-      <Link href={'/'}>
-        <Image src={'/logo.png'} alt="logo" width={40} height={40} />
+      <Link href={"/"}>
+        <Image src={"/logo.png"} alt="logo" width={70} height={70} />
       </Link>
+     
+     { isHomePage && ( <Link href={"/"}>
+     <div className=" flex flex-col items-center text-center">
+        <Image 
+        className="rounded-full cursor-pointer object-cover" 
+        src={"/Resume camera photo.png"} alt="logo" width={70} height={70} />
+           <p>Like And Follow</p> 
+     </div>
+      </Link>)
+
+     } 
+
+      {/* If user not logged in */}
       {!userDetail?.name ? (
         <div className="flex gap-5">
-          <Button variant="ghost">Sign In</Button>
+          <Button variant="ghost" onClick={() => setOpenDialog(true)}>
+            Sign In
+          </Button>
           <Button
             className="text-white"
             style={{
               backgroundColor: Colors.BLUE,
             }}
+            onClick={() => setOpenDialog(true)} // also open sign in for Get Started
           >
             Get Started
           </Button>
         </div>
       ) : (
         <div className="flex gap-5 items-center">
-          {pathname.includes('/workspace/') && (
+          {pathname.includes("/workspace/") && (
             <>
-              <Button variant="ghost" onClick={() => onActionBtn('export')}>
+              <Button variant="ghost" onClick={() => onActionBtn("export")}>
                 <Download /> Export
               </Button>
               <Button
-                onClick={() => onActionBtn('deploy')}
+                onClick={() => onActionBtn("deploy")}
                 className="text-white"
                 style={{
                   backgroundColor: Colors.BLUE,
@@ -69,6 +92,9 @@ function Header() {
           )}
         </div>
       )}
+
+      {/* ✅ Add SignInDialog here */}
+      <SignInDialog openDialog={openDialog} closeDialog={setOpenDialog} />
     </div>
   );
 }

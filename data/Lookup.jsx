@@ -1,13 +1,13 @@
 import dedent from "dedent";
 
 export default {
-  SUGGSTIONS: ['Create ToDo App in React', 'Create Budget Track App', 'Create Gym Managment Portal Dashboard', 'Create Quizz App On History', 'Create Login Signup Screen'],
-  HERO_HEADING: 'What do you want to build?',
+  SUGGSTIONS: ['Create An Face Recognition App 🤯','Create An proficient CAR GAME in React', 'Create An Bike game App', 'Create Gym Managment Portal Dashboard', 'Create Amazon web page', 'Create an Snake game'],
+  HERO_HEADING: 'You just imagine I will build 🚀',
   HERO_DESC: 'Prompt, run, edit, and deploy full-stack web apps.',
-  INPUT_PLACEHOLDER: 'What you want to build?',
-  SIGNIN_HEADING: 'Continue With Bolt.New 2.0',
-  SIGNIN_SUBHEADING: 'To use Bolt you must log into an existing account or create one.',
-  SIGNIn_AGREEMENT_TEXT: 'By using Bolt, you agree to the collection of usage data for analytics.',
+  INPUT_PLACEHOLDER: 'What is in your Imagination 🗿?',
+  SIGNIN_HEADING: 'Continue With GENOCODE AI🤖',
+  SIGNIN_SUBHEADING: 'To use GENOCODE AI you must log into an existing account or create one. Do Fast NASA is Waiting for You',
+  SIGNIn_AGREEMENT_TEXT: 'By using GENOCODE AI, you agree to the collection of usage data for analytics.',
 
 
   DEFAULT_FILE: {

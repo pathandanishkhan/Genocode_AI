@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
 function Hero() {
-  const [userInput, setUserInput] = useState();
+  const [userInput, setUserInput] = useState('');
   const { messages, setMessages } = useContext(MessagesContext);
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
   const [openDialog, setOpenDialog] = useState(false);
@@ -44,7 +44,7 @@ function Hero() {
 
   return (
     <div className="flex flex-col items-center mt-36 xl:mt-42 gap-2">
-      <h2 className="font-bold text-4xl">{Lookup.HERO_HEADING}</h2>
+      <h2 className="font-bold text-4xl text-center">{Lookup.HERO_HEADING}</h2>
       <p className="text-gray-400 font-medium">{Lookup.HERO_DESC}</p>
       <div
         className="p-5 border rounded-xl max-w-2xl w-full mt-3"
@@ -58,12 +58,13 @@ function Hero() {
             className="outline-none bg-transparent w-full h-32 max-h-56 resize-none"
             onChange={(event) => setUserInput(event.target.value)}
           />
-          {userInput && (
-            <ArrowRight
-              onClick={() => onGenerate(userInput)}
-              className="bg-blue-500 p-2 w-10 h-10 rounded-md cursor-pointer"
-            />
-          )}
+         {userInput.trim().length > 0 && (
+  <ArrowRight
+    onClick={() => onGenerate(userInput)}
+    className="bg-blue-500 p-2 w-10 h-10 rounded-md cursor-pointer"
+  />
+)}
+
         </div>
         <div>
           <Link className="h-5 w-5" />

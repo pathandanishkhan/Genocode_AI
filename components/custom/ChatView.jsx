@@ -60,7 +60,7 @@ function ChatView() {
     setLoading(true);
     const PROMPT = JSON.stringify(messages) + Prompt.CHAT_PROMPT;
     console.log({ PROMPT });
-    const result = await axios.post('/api/ai-chat', {
+    const result = await axios.post('http://localhost:3000/api/ai-chat', {
       prompt: PROMPT,
     });
     console.log(result.data.result);

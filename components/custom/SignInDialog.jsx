@@ -42,6 +42,7 @@ function SignInDialog({ openDialog, closeDialog }) {
       }
       setUserDetail(userInfo?.data);
       closeDialog(false);
+      window.location.reload();
     },
     onError: (errorResponse) => console.log(errorResponse),
   });
@@ -50,19 +51,21 @@ function SignInDialog({ openDialog, closeDialog }) {
       <DialogContent>
         <DialogHeader>
           <DialogTitle></DialogTitle>
-          <DialogDescription>
+          <DialogDescription asChild>
             <div className="flex flex-col justify-center items-center gap-3">
-              <h2 className="font-bold text-2xl text-center text-white">
-                {Lookup.SIGNIN_HEADING}
-              </h2>
-              <p className="mt-2  text-center">{Lookup.SIGNIN_SUBHEADING}</p>
+              <span className="font-bold text-2xl text-center text-white">
+                {Lookup?.SIGNIN_HEADING || "Sign In"}
+              </span>
+              <span className="mt-2 text-center">
+                {Lookup?.SIGNIN_SUBHEADING || "Please enter your details below"}
+              </span>
               <Button
                 className="bg-blue-500 text-white hover:bg-blue-400 mt-3"
-                onClick={() => googleLogin()}
+                onClick={() => googleLogin() }
               >
                 Signin In With Google
               </Button>
-              <p>{Lookup.SIGNIn_AGREEMENT_TEXT}</p>
+              <span>{Lookup.SIGNIn_AGREEMENT_TEXT}</span>
             </div>
           </DialogDescription>
         </DialogHeader>
