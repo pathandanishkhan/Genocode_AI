@@ -35,7 +35,7 @@ function Header() {
         <Image src={"/logo.png"} alt="logo" width={70} height={70} />
       </Link>
      
-     { isHomePage && ( <Link  href={"https://www.linkedin.com/in/pathan-danish-68098536b"}>
+     { isHomePage && ( <Link target="_blank" href={"https://www.linkedin.com/in/pathan-danish-68098536b"}>
      <div className=" flex flex-col items-center text-center">
         <Image 
         className="rounded-full cursor-pointer object-cover" 
