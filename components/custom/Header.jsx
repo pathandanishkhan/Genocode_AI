@@ -35,7 +35,7 @@ function Header() {
         <Image src={"/logo.png"} alt="logo" width={70} height={70} />
       </Link>
      
-     { isHomePage && ( <Link href={"/"}>
+     { isHomePage && ( <Link  href={"https://www.linkedin.com/in/pathan-danish-68098536b"}>
      <div className=" flex flex-col items-center text-center">
         <Image 
         className="rounded-full cursor-pointer object-cover" 
@@ -45,6 +45,7 @@ function Header() {
       </Link>)
 
      } 
+
 
       {/* If user not logged in */}
       {!userDetail?.name ? (
